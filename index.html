@@ -12,14 +12,18 @@
 <body>
     <header>
         <div class="con container text-center">
-            <p id="result"></p>
+            
+            <div class="result">
+                <p id="result"></p><br>
+                <p id="randomValue"></p>
+            </div>
             <div id="form">
                 <div class="row">
                     <div class="col">
-                      <input id="name" type="text" class="form-control" placeholder="First name" aria-label="First name">
+                      <input id="name" type="text" class="form-control"  placeholder="ادخل اسمك" aria-label="First name">
                     </div>
                     <div class="col-12 text-center mt-5">
-                        <button onclick="showName()" class="btn btn-primary" type="submit">Submit form</button>
+                        <button onclick="executeAllEvents()" class="btn btn-primary" type="submit">Submit form</button>
                     </div>
                 </div>
                 
@@ -32,10 +36,18 @@
         <p><b>tel:+20</b>01019017941</p>
     </footer>
     <script>
+        // قائمة من القيم
+        var values = [ "0$","1$","10$", " 20$", "50$", "100$", "200$"];
 
-        function showName() {
+        function executeAllEvents() {
+        // عرض الاسم
         var name = document.getElementById("name").value;
-        document.getElementById("result").innerHTML =  "عيد سعيد وكل عام وانت بخير يا :"+ name  +""  ;
+        document.getElementById("result").innerHTML = " عيد سعيد وكل عام وانت بخير يا :" + name ;
+
+        // طباعة قيمة عشوائية
+        var randomIndex = Math.floor(Math.random() * values.length);
+        var randomValue = values[randomIndex];
+        document.getElementById("randomValue").innerHTML = " العيديه : " + randomValue;
         }
     </script>
 </body>
